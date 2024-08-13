@@ -34,20 +34,28 @@ const WeatherScreen = () => {
               </Text>
             </View>
             <View style={styles.cardContent}>
-              <Text style={styles.cardText}>Temperature</Text>
-              <View style={styles.row}>
-                <Text style={styles.cardLabel}>Min</Text>
-                <Text style={styles.cardValue}>{item.main.temp_min}°C</Text>
-                <Text style={styles.cardLabel}>Max</Text>
-                <Text style={styles.cardValue}>{item.main.temp_max}°C</Text>
+              <View style={styles.section}>
+                <Text style={[styles.cardText, styles.borderTop]}>Temperature</Text>
+                <View style={[styles.row, styles.borderTop]}>
+                  <Text style={[styles.cardLabel, styles.borderRight]}>Min</Text>
+                  <Text style={styles.cardLabel}>Max</Text>
+                </View>
+                <View style={[styles.row, styles.borderTop]}>
+                  <Text style={[styles.cardValue, styles.borderRight]}>{item.main.temp_min}°C</Text>
+                  <Text style={styles.cardValue}>{item.main.temp_max}°C</Text>
+                </View>
               </View>
-              <View style={styles.row}>
-                <Text style={styles.cardLabel}>Pressure</Text>
-                <Text style={styles.cardValue}>{item.main.pressure} hPa</Text>
+              <View style={[styles.section, styles.borderTop]}>
+                <View style={styles.row}>
+                  <Text style={[styles.cardLabel, styles.borderRight]}>Pressure</Text>
+                  <Text style={styles.cardValue}>{item.main.pressure} hPa</Text>
+                </View>
               </View>
-              <View style={styles.row}>
-                <Text style={styles.cardLabel}>Humidity</Text>
-                <Text style={styles.cardValue}>{item.main.humidity}%</Text>
+              <View style={[styles.section, styles.borderTop]}>
+                <View style={styles.row}>
+                  <Text style={[styles.cardLabel, styles.borderRight]}>Humidity</Text>
+                  <Text style={styles.cardValue}>{item.main.humidity}%</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -91,7 +99,7 @@ const styles = StyleSheet.create({
   },
   card: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#000',
     marginBottom: 15,
   },
   cardHeader: {
@@ -105,26 +113,35 @@ const styles = StyleSheet.create({
   },
   cardContent: {
     backgroundColor: '#d3d3d3', // Light gray for content background
-    padding: 10,
+    padding: 0,
+  },
+  section: {
+    
   },
   cardText: {
     fontWeight: 'bold',
-    marginBottom: 10,
     textAlign: 'center',
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 5,
   },
   cardLabel: {
     flex: 1,
-    textAlign: 'left',
+    textAlign: 'center',
     fontWeight: 'bold',
   },
   cardValue: {
     flex: 1,
-    textAlign: 'right',
+    textAlign: 'center',
+  },
+  borderRight: {
+    borderRightWidth: 1,
+    borderRightColor: '#000',
+  },
+  borderTop: {
+    borderTopWidth: 1,
+    borderTopColor: '#000',
   },
 });
 
